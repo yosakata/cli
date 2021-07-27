@@ -1,0 +1,3 @@
+最新のインスタンス ID のみ表示したい場合： aws ec2 describe-instances --region "[リージョンコード]" --query 'sort_by(Reservations[].Instances[],&LaunchTime)[].[InstanceId][-1]' --output table
+最新のインスタンス ID ＋ 起動時間を表示したい場合：aws ec2 describe-instances --region "[リージョンコード]" --query 'sort_by(Reservations[].Instances[],&LaunchTime)[].[InstanceId, LaunchTime][-1]' --output table
+全てのインスタンス ID ＋ 起動時間を表示したい場合：aws ec2 describe-instances --region "[リージョンコード]" --query 'sort_by(Reservations[].Instances[],&LaunchTime)[].[InstanceId, LaunchTime]' --output table
